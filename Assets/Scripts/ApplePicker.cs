@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
+using UnityEngine.SceneManagement;
 
 public class ApplePicker : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class ApplePicker : MonoBehaviour
         Destroy(tBasketGO);
         if (basketList.Count == 0)
         {
-            Application.LoadLevel("SampleScene");
+           SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
@@ -49,5 +50,10 @@ public class ApplePicker : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
